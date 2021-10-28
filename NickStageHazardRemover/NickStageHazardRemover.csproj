@@ -37,6 +37,9 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(GameDir)\Nickelodeon All-Star Brawl_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\..\..\SteamLibrary\steamapps\common\Nickelodeon All-Star Brawl\Nickelodeon All-Star Brawl_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAudioModule">
       <HintPath>$(GameDir)\Nickelodeon All-Star Brawl_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
     </Reference>
