@@ -9,7 +9,7 @@
   </Target>
 
   <ItemGroup>
-    <None Include="NickStageLeaglizer.csproj.user" />
+    <None Include="NickStageHazardRemover.csproj.user" />
   </ItemGroup>
 
   <ItemGroup>
