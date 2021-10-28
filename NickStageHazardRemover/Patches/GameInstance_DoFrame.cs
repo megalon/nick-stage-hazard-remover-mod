@@ -6,7 +6,7 @@ using Nick;
 using SMU.Reflection;
 using UnityEngine;
 
-namespace NickStageModifier.Patches
+namespace NickStageHazardRemover.Patches
 {
     [HarmonyPatch(typeof(GameInstance), "DoFrame")]
     class GameInstance_DoFrame

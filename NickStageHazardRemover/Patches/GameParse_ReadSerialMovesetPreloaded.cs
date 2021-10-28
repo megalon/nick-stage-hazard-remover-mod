@@ -5,7 +5,7 @@ using HarmonyLib;
 using Nick;
 using UnityEngine;
 
-namespace NickStageModifier.Patches
+namespace NickStageHazardRemover.Patches
 {
 	[HarmonyPatch(typeof(GameParse), "ReadSerialMovesetPreloaded")]
 	class GameParse_ReadSerialMovesetPreloaded
@@ -24,7 +24,7 @@ namespace NickStageModifier.Patches
 				}
 
 				// Swap out stages for generic stage
-				// Jellyfish Fields is technically a legal stage, even though it has a moving platform
+				// Jellyfish Fields is technically a legal stage, even though it has a moving platform, so ignore it
 				if (movesetLayers[i].name.StartsWith("stage_") && !movesetLayers[i].name.Equals("stage_apple_fields"))
                 {
 					Plugin.LogInfo($"Swapping stage TextAsset for \"{movesetLayers[i].name}\" to generic static stage");

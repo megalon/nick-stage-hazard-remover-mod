@@ -4,7 +4,7 @@ using System.Text;
 using HarmonyLib;
 using Nick;
 
-namespace NickStageModifier.Patches
+namespace NickStageHazardRemover.Patches
 {
     [HarmonyPatch(typeof(GameInstance), "PrepareInstance")]
     class GameInstance_PrepareInstance
