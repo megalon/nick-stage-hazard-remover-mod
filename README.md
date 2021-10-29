@@ -17,7 +17,7 @@ Download the latest version of this mod from the [Slime Mod Manager](https://git
 | Glove World | Disabled ferris wheel movement, and roller-coaster carts. | 
 | Harmonic Convergence | | 
 | Irken Armada Invasion | |
-| Jellyfish Fields | Disabled platform movement |
+| Jellyfish Fields | |
 | Omashu | Disabled moving delivery crates | 
 | Powdered Toast Trouble | Disabled platform movement and covered frying pan |
 | Rooftop Rumble | |
