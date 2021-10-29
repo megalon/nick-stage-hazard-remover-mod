@@ -6,9 +6,9 @@ using Nick;
 
 namespace NickStageHazardRemover.Patches
 {
-    [HarmonyPatch(typeof(OnlineGameRunner), "SetupInvites")]
+    [HarmonyPatch(typeof(GameRunner), "SetupInvites")]
     class OnlineGameRunner_SetupInvites
-    {
+    {   
         static void Prefix()
         {
             Plugin.isOnline = false;

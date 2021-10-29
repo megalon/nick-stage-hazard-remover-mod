@@ -6,6 +6,7 @@ using System;
 using System.Reflection;
 using BepInEx.Configuration;
 using UnityEngine;
+using Nick;
 
 namespace NickStageHazardRemover
 {
@@ -16,6 +17,8 @@ namespace NickStageHazardRemover
         public static bool WaitingForUpdate = false;
         public static bool isOnline = false;
         internal ConfigEntry<bool> isEnabled;
+        internal ConfigEntry<bool> hazardsOn;
+        internal static MenuTextContent stageSelectTextContent;
 
         private void Awake()
         {
@@ -31,6 +34,7 @@ namespace NickStageHazardRemover
             var config = this.Config;
 
             isEnabled = Config.Bind<bool>("Options", "Enabled", true);
+            hazardsOn = Config.Bind<bool>("Options", "Hazards On", true);
 
             if (!Plugin.Instance.isEnabled.Value)
             {
@@ -43,10 +47,32 @@ namespace NickStageHazardRemover
             Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
         }
 
+        private void Update()
+        {
+            if (!stageSelectTextContent)
+            {
+                return;
+            }
+
+            if ((bool)MenuSystem.MainInput?.IsButtonPress(MenuAction.ActionButton.Opt2))
+            {
+                Plugin.Instance.hazardsOn.Value = !Plugin.Instance.hazardsOn.Value;
+                Plugin.LogInfo($"Detected button press! Set hazardsOn to {Plugin.Instance.hazardsOn.Value}");
+                updateStageSelectText();
+            }
+        }
+
+        internal static void updateStageSelectText()
+        {
+            if (!stageSelectTextContent) return;
+
+            var hazardsText = (Plugin.Instance.hazardsOn.Value ? "<color=yellow>On</color>" : "<color=red>Off</color>");
+            stageSelectTextContent.SetString($"{Localization.stage_select_header} | Hazards: {hazardsText}\nLeft bumper to toggle");
+        }
+
         static void OnConfigSettingChanged(object sender, EventArgs args)
         {
             LogDebug($"{PluginInfo.PLUGIN_NAME} OnConfigSettingChanged");
-            LogInfo($"Plugin {PluginInfo.PLUGIN_NAME} config value \"Enabled\" set to \"{Plugin.Instance.isEnabled.Value}\"!");
             Plugin.Instance?.Config?.Reload();
         }
 
