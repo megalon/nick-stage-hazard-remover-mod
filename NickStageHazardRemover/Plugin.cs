@@ -19,6 +19,7 @@ namespace NickStageHazardRemover
         internal ConfigEntry<bool> isEnabled;
         internal ConfigEntry<bool> hazardsOn;
         internal static MenuTextContent stageSelectTextContent;
+        internal static List<GameObject> instantiatedGameObjects;
 
         private void Awake()
         {
@@ -30,6 +31,8 @@ namespace NickStageHazardRemover
                 return;
             }
             Instance = this;
+
+            Plugin.instantiatedGameObjects = new List<GameObject>();
 
             var config = this.Config;
 
@@ -68,6 +71,23 @@ namespace NickStageHazardRemover
 
             var hazardsText = (Plugin.Instance.hazardsOn.Value ? "<color=yellow>On</color>" : "<color=red>Off</color>");
             stageSelectTextContent.SetString($"{Localization.stage_select_header} | Hazards: {hazardsText}\nLeft bumper to toggle");
+        }
+
+        internal static GameObject InstantiateGameObject(GameObject gameObject)
+        {
+            GameObject instantiated = GameObject.Instantiate(gameObject);
+            Plugin.instantiatedGameObjects.Add(instantiated);
+            return instantiated;
+        }
+
+        internal static void DestroyInstantiatedGameObjects()
+        {
+            foreach (GameObject obj in Plugin.instantiatedGameObjects)
+            {
+                Plugin.LogInfo($"Destroying instantiated GameObject {obj.name}");
+                GameObject.Destroy(obj);
+            }
+            Plugin.instantiatedGameObjects.Clear();
         }
 
         static void OnConfigSettingChanged(object sender, EventArgs args)
