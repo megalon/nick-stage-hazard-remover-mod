@@ -12,7 +12,7 @@ namespace NickStageHazardRemover.Patches
     {
         private static bool Prefix(ref GameStage stage, PolygonStageSource __instance)
         {
-            if (!Plugin.Instance.isEnabled.Value) return true;
+            if (!Plugin.Instance.isEnabled.Value || Plugin.isOnline) return true;
 
             // Continue to regular function if this isn't the kitchen stage
             if (!__instance) return true;
@@ -21,6 +21,7 @@ namespace NickStageHazardRemover.Patches
             if (!__instance.transform.parent.parent) return true;
 
             // Update the PolygonCollider2D for stage_duo_kitchen
+            // This is so that we can walk on the plate over the frying pan
             // Using "StartsWith" because string might be "...(Clone)"
             if (__instance.transform.parent.parent.name.StartsWith("stage_duo_kitchen"))
             {

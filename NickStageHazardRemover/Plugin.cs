@@ -14,6 +14,7 @@ namespace NickStageHazardRemover
     {
         internal static Plugin Instance;
         public static bool WaitingForUpdate = false;
+        public static bool isOnline = false;
         internal ConfigEntry<bool> isEnabled;
 
         private void Awake()

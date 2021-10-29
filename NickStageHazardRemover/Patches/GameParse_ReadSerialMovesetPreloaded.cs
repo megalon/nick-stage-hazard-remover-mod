@@ -12,7 +12,7 @@ namespace NickStageHazardRemover.Patches
 	{
 		private static bool Prefix(ref TextAsset[] movesetLayers)
 		{
-			if (!Plugin.Instance.isEnabled.Value) return true;
+			if (!Plugin.Instance.isEnabled.Value || Plugin.isOnline) return true;
 
 			for (int i = 0; i < movesetLayers.Length; i++)
 			{
