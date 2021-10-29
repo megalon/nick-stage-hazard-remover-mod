@@ -23,6 +23,8 @@ namespace NickStageHazardRemover.Patches
 
         static void Postfix(ref GameAgent[] ___updagents, ref GameInstance __instance, ref int ___agentsAdded)
         {
+            if (!Plugin.Instance.isEnabled.Value) return;
+
             if (Plugin.WaitingForUpdate)
             {
                 Plugin.LogWarning($"Got to \"GameInstance_DoFrame\"!");

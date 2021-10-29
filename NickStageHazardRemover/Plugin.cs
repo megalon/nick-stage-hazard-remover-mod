@@ -14,6 +14,7 @@ namespace NickStageHazardRemover
     {
         internal static Plugin Instance;
         public static bool WaitingForUpdate = false;
+        internal ConfigEntry<bool> isEnabled;
 
         private void Awake()
         {
@@ -28,6 +29,13 @@ namespace NickStageHazardRemover
 
             var config = this.Config;
 
+            isEnabled = Config.Bind<bool>("Options", "Enabled", true);
+
+            if (!Plugin.Instance.isEnabled.Value)
+            {
+                Logger.LogWarning($"Plugin {PluginInfo.PLUGIN_NAME} is disabled! You must enable it in the config file for it to work!");
+            }
+
             config.SettingChanged += OnConfigSettingChanged;
 
             // Harmony patches
@@ -37,6 +45,7 @@ namespace NickStageHazardRemover
         static void OnConfigSettingChanged(object sender, EventArgs args)
         {
             LogDebug($"{PluginInfo.PLUGIN_NAME} OnConfigSettingChanged");
+            LogInfo($"Plugin {PluginInfo.PLUGIN_NAME} config value \"Enabled\" set to \"{Plugin.Instance.isEnabled.Value}\"!");
             Plugin.Instance?.Config?.Reload();
         }
 

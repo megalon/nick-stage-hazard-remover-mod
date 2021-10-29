@@ -10,8 +10,10 @@ namespace NickStageHazardRemover.Patches
 	[HarmonyPatch(typeof(GameParse), "ReadSerialMovesetPreloaded")]
 	class GameParse_ReadSerialMovesetPreloaded
 	{
-		private static void Prefix(ref TextAsset[] movesetLayers)
+		private static bool Prefix(ref TextAsset[] movesetLayers)
 		{
+			if (!Plugin.Instance.isEnabled.Value) return true;
+
 			for (int i = 0; i < movesetLayers.Length; i++)
 			{
 				// Look for modified file in text assets
@@ -31,6 +33,8 @@ namespace NickStageHazardRemover.Patches
 					movesetLayers[i] = new TextAsset(Properties.Resources.stage_static);
 				}
 			}
+
+			return true;
 		}
 	}
 }

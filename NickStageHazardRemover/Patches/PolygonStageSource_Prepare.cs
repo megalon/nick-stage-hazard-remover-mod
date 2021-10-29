@@ -12,6 +12,8 @@ namespace NickStageHazardRemover.Patches
     {
         private static bool Prefix(ref GameStage stage, PolygonStageSource __instance)
         {
+            if (!Plugin.Instance.isEnabled.Value) return true;
+
             // Continue to regular function if this isn't the kitchen stage
             if (!__instance) return true;
             if (!__instance.transform) return true;

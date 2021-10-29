@@ -11,6 +11,8 @@ namespace NickStageHazardRemover.Patches
     {
         static void Postfix()
         {
+            if (!Plugin.Instance.isEnabled.Value) return;
+
             Plugin.WaitingForUpdate = true;
         }
     }
