@@ -124,6 +124,9 @@
   <data name="stage_narrator_jungle_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\textassets\stage_narrator_jungle_new.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="stage_snake_dump_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\textassets\stage_snake_dump_new.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="stage_static" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\textassets\stage_static.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
