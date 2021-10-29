@@ -89,40 +89,6 @@ namespace NickStageHazardRemover.Patches
 
                 if (stageAgent.GameUniqueIdentifier.Equals("stage_duo_kitchen"))
                 {
-                    // Extend stage hitbox to cover the frying pan, so we can stand on it
-                    var rightClusterCollision = __instance.transform.Find("stage_duo_kitchen(Clone)/stage/RightCluster_Collision");
-                    if(rightClusterCollision != null)
-                    {
-                        PolygonStageSource polygonStageSource = rightClusterCollision.GetComponent<PolygonStageSource>();
-                        
-                        // Add new points to edgePoints array
-                        Vector2[] edgePoints = ReflectionUtil.GetField<PolygonColliderStageSource, Vector2[]>(polygonStageSource.pcss, "edgePoints");
-                        Vector2[] updatedPoints = new Vector2[edgePoints.Length + 4];
-                        edgePoints.CopyTo(updatedPoints, 0);
-
-                        // Add new points to gap in array
-                        updatedPoints[0].x = 56f;
-                        updatedPoints[edgePoints.Length]     = new Vector2(15.93f, 5.84f);
-                        updatedPoints[edgePoints.Length + 1] = new Vector2(29.4f,  7.5f);
-                        updatedPoints[edgePoints.Length + 2] = new Vector2(32.24f, 9.4f);
-                        updatedPoints[edgePoints.Length + 3] = new Vector2(56f,    9.4f);
-                        ReflectionUtil.SetField<PolygonColliderStageSource, Vector2[]>(polygonStageSource.pcss, "edgePoints", updatedPoints);
-
-                        // Extend StageLine[] array to accomodate new lines
-                        StageLine[] mStage = ReflectionUtil.GetField<PolygonColliderStageSource, StageLine[]>(polygonStageSource.pcss, "mStage");
-                        StageLine[] newMStage = new StageLine[updatedPoints.Length];
-                        mStage.CopyTo(newMStage, 0);
-
-                        ReflectionUtil.SetField<PolygonColliderStageSource, StageLine[]>(polygonStageSource.pcss, "mStage", newMStage);
-
-                        // Update Stage Lines
-                        stageAgent.UpdateStage();
-                    }
-                    else
-                    {
-                        Plugin.LogError("Could not find RightCluster_Collision!");
-                    }
-
                     // Move a plate to cover up the frying pan
                     var originalPlateObj = __instance.transform.Find("stage_duo_kitchen(Clone)/KitchenAssets/Plate_Duo");
                     GameObject newPlate = GameObject.Instantiate(originalPlateObj.gameObject);
