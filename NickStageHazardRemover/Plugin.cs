@@ -55,7 +55,6 @@ namespace NickStageHazardRemover
             if ((bool)MenuSystem.MainInput?.IsButtonPress(MenuAction.ActionButton.Opt2))
             {
                 Plugin.Instance.hazardsOn.Value = !Plugin.Instance.hazardsOn.Value;
-                Plugin.LogInfo($"Detected button press! Set hazardsOn to {Plugin.Instance.hazardsOn.Value}");
                 updateStageSelectText();
             }
         }
