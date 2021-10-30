@@ -4,9 +4,15 @@ This mod will remove or disable stage hazards in Nick All-Star Brawl!
 
 ## 🚀 Installation
 
-### Slime Mod Manager
+Currently only available through the [releases page](https://github.com/megalon/nick-stage-hazard-remover-mod/releases) on GitHub.
 
-Download the latest version of this mod from the [Slime Mod Manager](https://github.com/legoandmars/SlimeModManager/releases/latest)!
+## ℹ Usage
+
+This mod adds an option to disable stage hazards in the stage select menu.
+
+![GIF 10-29-2021 9-43-15 PM](https://user-images.githubusercontent.com/27714637/139522945-575806e5-e139-4f16-a048-7c372acb9b70.gif)
+
+**Currently only available in local matches.**
 
 ## ℹ Changes
 
@@ -14,7 +20,7 @@ Download the latest version of this mod from the [Slime Mod Manager](https://git
 |----|----|
 | CatDog's House | |
 | Ghost Zone | |
-| Glove World | Disabled ferris wheel movement, and roller-coaster carts. | 
+| Glove World | Disabled ferris wheel movement, and roller-coaster carts | 
 | Harmonic Convergence | | 
 | Irken Armada Invasion | |
 | Jellyfish Fields | |
@@ -32,15 +38,3 @@ Download the latest version of this mod from the [Slime Mod Manager](https://git
 | Traffic Jam | Parked bus and disabled moving cars |
 | Western Air Temple | |
 | Wild Waterfall | Disable log spawner, and middle and bottom log stay after first spawn |
-
-## 📝 Configuration
-
-**Run the game once with the mod installed to generate the config file:**
-
-`BepInEx\config\megalon.nick_stage_hazard_remover_mod.cfg`
-
-| Setting | Possible Values | Default | Description |
-|-----|-----|-----|-----|
-| `Enabled` | `true` or `false` | `true` | If enabled, the mod will make the changes listed above. If disabled, the mod will not function. |
-
-Simply edit this file in a text editor, and save it, then launch the game again.
