@@ -16,8 +16,9 @@ namespace NickStageHazardRemover.Patches
             if (Plugin.hazardButton != null) return;
 
             // Grab the ControlButton's ButtonImage so we can copy it
-            GameObject controlsButtonImage = __instance.transform.Find("Canvas/MainContainer/PlayerSlots/Player1Slot/NavigationButtonsMenu/NavigationButtons/ControlsButton/ButtonImage").gameObject;
-            Plugin.hazardButton = GameObject.Instantiate(controlsButtonImage);
+            Transform controlsButtonImage = __instance.transform.Find("Canvas/MainContainer/PlayerSlots/Player1Slot/NavigationButtonsMenu/NavigationButtons/ControlsButton/ButtonImage");
+            if (!controlsButtonImage) return;
+            Plugin.hazardButton = GameObject.Instantiate(controlsButtonImage.gameObject);
 
             var hazardButtonImage = Plugin.hazardButton.GetComponent<ButtonImage>();
             hazardButtonImage.controller = controlsButtonImage.GetComponent<ButtonImage>().controller;
