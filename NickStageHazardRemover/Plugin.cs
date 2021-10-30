@@ -17,7 +17,6 @@ namespace NickStageHazardRemover
         public static bool WaitingForUpdate = false;
         public static bool isOnline = false;
         public static bool isArcade = false;
-        internal ConfigEntry<bool> isEnabled;
         internal ConfigEntry<bool> hazardsOn;
         internal static MenuTextContent stageSelectTextContent;
         internal static List<GameObject> instantiatedGameObjects;
@@ -37,13 +36,7 @@ namespace NickStageHazardRemover
 
             var config = this.Config;
 
-            isEnabled = Config.Bind<bool>("Options", "Enabled", true);
             hazardsOn = Config.Bind<bool>("Options", "Hazards On", true);
-
-            if (!Plugin.Instance.isEnabled.Value)
-            {
-                Logger.LogWarning($"Plugin {PluginInfo.PLUGIN_NAME} is disabled! You must enable it in the config file for it to work!");
-            }
 
             config.SettingChanged += OnConfigSettingChanged;
 
