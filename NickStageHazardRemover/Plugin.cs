@@ -1,4 +1,4 @@
-using BepInEx;
+﻿using BepInEx;
 using System.Collections.Generic;
 using BepInEx.Logging;
 using HarmonyLib;
@@ -47,7 +47,7 @@ namespace NickStageHazardRemover
 
         private void Update()
         {
-            if (!stageSelectTextContent)
+            if (!stageSelectTextContent || isOnline || isArcade)
             {
                 return;
             }
