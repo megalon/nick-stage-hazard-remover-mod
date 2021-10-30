@@ -19,7 +19,6 @@ namespace NickStageHazardRemover.Patches
             {
                 Plugin.isOnline = false;
             }
-            Plugin.LogInfo($"MenuSystem_Update Plugin.isOnline:{Plugin.isOnline}");
         }
     }
 }
