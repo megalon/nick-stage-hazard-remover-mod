@@ -29,7 +29,7 @@ This mod adds an option to disable stage hazards in the stage select menu.
 | Rooftop Rumble | |
 | Royal Woods Cemetery | Disabled pop-up tombstone |
 | Sewers Slam | Disabled moving sludge |
-| Showdown at Teeter Totter Gulch | Disabled see-saw, swing, and horsey movement |
+| Showdown at Teeter Totter Gulch | Disabled see-saw, swing, and horsey movement. Moved bottom blast zone down now that sandtrap is gone. |
 | Space Madness |  Disabled platform movement and platforms no longer fall when standing on them |
 | Technodrome Takedown | Disabled flying platform movement |
 | The Dump | Disabled platform movement and stage stays in starting state |
