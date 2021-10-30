@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using System.Collections.Generic;
 using BepInEx.Logging;
 using HarmonyLib;
@@ -20,6 +20,7 @@ namespace NickStageHazardRemover
         internal ConfigEntry<bool> hazardsOn;
         internal static MenuTextContent stageSelectTextContent;
         internal static List<GameObject> instantiatedGameObjects;
+        internal static GameObject hazardButton;
 
         private void Awake()
         {
@@ -64,7 +65,7 @@ namespace NickStageHazardRemover
             if (!stageSelectTextContent) return;
 
             var hazardsText = (Plugin.Instance.hazardsOn.Value ? "<color=red>On</color>" : "<color=yellow>Off</color>");
-            stageSelectTextContent.SetString($"{Localization.stage_select_header} | Hazards: {hazardsText}\nLeft bumper to toggle");
+            stageSelectTextContent.SetString($"{Localization.stage_select_header}\nHazards           {hazardsText}");
         }
 
         internal static GameObject InstantiateGameObject(GameObject gameObject)

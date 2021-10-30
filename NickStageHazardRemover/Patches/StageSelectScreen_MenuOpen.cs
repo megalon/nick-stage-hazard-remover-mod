@@ -1,8 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using HarmonyLib;
 using Nick;
+using UnityEngine;
+using SMU.Reflection;
 
 namespace NickStageHazardRemover.Patches
 {
@@ -23,6 +25,11 @@ namespace NickStageHazardRemover.Patches
                 {
                     Plugin.updateStageSelectText();
                 }
+
+                Plugin.hazardButton.transform.position = Vector3.zero;
+                Plugin.hazardButton.transform.SetParent(title.Find("Text"));
+                Plugin.hazardButton.transform.localPosition = new Vector3(500, -65, 0);
+                Plugin.hazardButton.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             }
             else
             {
