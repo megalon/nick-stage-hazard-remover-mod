@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using System.Collections.Generic;
 using BepInEx.Logging;
 using HarmonyLib;
@@ -65,7 +65,7 @@ namespace NickStageHazardRemover
             if (!stageSelectTextContent) return;
 
             var hazardsText = (Plugin.Instance.hazardsOn.Value ? "<color=red>On</color>" : "<color=yellow>Off</color>");
-            stageSelectTextContent.SetString($"{Localization.stage_select_header}\n          Hazards: {hazardsText}");
+            stageSelectTextContent.SetString($"{Localization.stage_select_header}\nHazards           {hazardsText}");
         }
 
         internal static GameObject InstantiateGameObject(GameObject gameObject)
