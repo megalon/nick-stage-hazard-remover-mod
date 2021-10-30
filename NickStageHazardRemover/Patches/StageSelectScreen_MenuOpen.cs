@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using HarmonyLib;
@@ -13,6 +13,8 @@ namespace NickStageHazardRemover.Patches
     {
         static void Prefix(StageSelectScreen __instance)
         {
+            if (Plugin.isOnline || Plugin.isArcade) return;
+
             var title = __instance.gameObject.transform.Find("Canvas/MainContainer/Title");
 
             if (title != null)
