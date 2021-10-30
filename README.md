@@ -38,3 +38,30 @@ This mod adds an option to disable stage hazards in the stage select menu.
 | Traffic Jam | Parked bus and disabled moving cars |
 | Western Air Temple | |
 | Wild Waterfall | Disable log spawner, and middle and bottom log stay after first spawn |
+
+
+## 🔧 Developing
+
+This project requires `SlimeModdingUtilities.dll`! 
+
+You can install it with `Slime Modding Utilites` via [Slime Mod Manager](https://github.com/legoandmars/slimemodmanager/releases/latest)
+
+### Setup
+
+Clone the project, then create a file in the root of the project directory named:
+
+`NickStageHazardRemover.csproj.user`
+
+Here you need to set the `GameDir` property to match your install directory.
+
+Example:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <GameDir>D:\SteamLibrary\steamapps\common\Nickelodeon All-Star Brawl</GameDir>
+  </PropertyGroup>
+</Project>
+```
+
+Now when you build the mod, it should resolve your references automatically, and the build event will copy the plugin into your `BepInEx\plugins` folder!
