@@ -7,7 +7,7 @@ using Nick;
 namespace NickStageHazardRemover.Patches
 {
     [HarmonyPatch(typeof(GameRunner), "SetupInvites")]
-    class OnlineGameRunner_SetupInvites
+    class GameRunner_SetupInvites
     {   
         static void Prefix()
         {

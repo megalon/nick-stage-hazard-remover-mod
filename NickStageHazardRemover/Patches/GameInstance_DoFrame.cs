@@ -27,7 +27,7 @@ namespace NickStageHazardRemover.Patches
 
             Plugin.DestroyInstantiatedGameObjects();
 
-            if (Plugin.Instance.hazardsOn.Value || Plugin.isOnline)
+            if (Plugin.Instance.hazardsOn.Value || Plugin.isOnline || Plugin.isArcade)
             {
                 Plugin.WaitingForUpdate = false;
                 return;
@@ -49,8 +49,6 @@ namespace NickStageHazardRemover.Patches
                 Plugin.LogError($"Could not find info in \"___updagents\" array!");
                 return;
             }
-
-            Plugin.LogInfo($"Stage is \"{stageAgent.GameUniqueIdentifier}\"!");
 
             if (stageAgent.GameUniqueIdentifier.Equals("stage_rival_bus"))
             {
@@ -91,7 +89,6 @@ namespace NickStageHazardRemover.Patches
                     Plugin.LogError("Could not find Bus!");
                 }
             }
-
 
             if (stageAgent.GameUniqueIdentifier.Equals("stage_duo_kitchen"))
             {

@@ -16,6 +16,7 @@ namespace NickStageHazardRemover
         internal static Plugin Instance;
         public static bool WaitingForUpdate = false;
         public static bool isOnline = false;
+        public static bool isArcade = false;
         internal ConfigEntry<bool> isEnabled;
         internal ConfigEntry<bool> hazardsOn;
         internal static MenuTextContent stageSelectTextContent;
