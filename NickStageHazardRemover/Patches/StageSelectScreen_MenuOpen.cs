@@ -15,7 +15,6 @@ namespace NickStageHazardRemover.Patches
 
             if (title != null)
             {
-                Plugin.LogInfo("Found Canvas/MainContainer/Title!");
                 Plugin.stageSelectTextContent = title.GetComponent<MenuTextContent>();
                 if (!Plugin.stageSelectTextContent)
                 {

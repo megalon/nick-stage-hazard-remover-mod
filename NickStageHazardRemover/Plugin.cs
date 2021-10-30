@@ -63,7 +63,7 @@ namespace NickStageHazardRemover
         {
             if (!stageSelectTextContent) return;
 
-            var hazardsText = (Plugin.Instance.hazardsOn.Value ? "<color=yellow>On</color>" : "<color=red>Off</color>");
+            var hazardsText = (Plugin.Instance.hazardsOn.Value ? "<color=red>On</color>" : "<color=yellow>Off</color>");
             stageSelectTextContent.SetString($"{Localization.stage_select_header} | Hazards: {hazardsText}\nLeft bumper to toggle");
         }
 

@@ -11,16 +11,6 @@ namespace NickStageHazardRemover.Patches
     [HarmonyPatch(typeof(GameInstance), "DoFrame")]
     class GameInstance_DoFrame
     {
-        static void PrintAllParents(Transform transform)
-        {
-            Plugin.LogDebug($"PrintAllParents:\"{transform.name}\"");
-            while (transform.parent)
-            {
-                transform = transform.parent;
-                Plugin.LogDebug($"parent:\"{transform.name}\"");
-            }
-        }
-
         static void Postfix(ref GameAgent[] ___updagents, ref GameInstance __instance, ref int ___agentsAdded)
         {
             if (!Plugin.WaitingForUpdate) return;
@@ -53,7 +43,7 @@ namespace NickStageHazardRemover.Patches
             if (stageAgent.GameUniqueIdentifier.Equals("stage_rival_bus"))
             {
                 // Stop background movement
-                GameObject.Destroy(__instance.GetComponentInChildren<CityBackgroundMovement>());
+                __instance.GetComponentInChildren<CityBackgroundMovement>().enabled = false;
                     
                 // Disable conveyer belt road
                 EdgeStageSource[] edgeStageSources = __instance.GetComponentsInChildren<EdgeStageSource>();
