@@ -12,7 +12,7 @@ namespace NickStageHazardRemover.Patches
     {
         private static bool Prefix(ref GameStage stage, PolygonStageSource __instance)
         {
-            if (Plugin.Instance.hazardsOn.Value || Plugin.isOnline) return true;
+            if (Plugin.Instance.hazardsOn.Value || Plugin.isOnline || Plugin.isArcade) return true;
 
             // Continue to regular function if this isn't the kitchen stage
             if (!__instance) return true;
