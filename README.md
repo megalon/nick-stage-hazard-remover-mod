@@ -4,7 +4,9 @@ This mod will remove or disable stage hazards in Nick All-Star Brawl!
 
 ## 🚀 Installation
 
-Currently only available through the [releases page](https://github.com/megalon/nick-stage-hazard-remover-mod/releases) on GitHub.
+### Slime Mod Manager
+
+Download the latest version of this mod from the [Slime Mod Manager](https://github.com/legoandmars/SlimeModManager/releases/latest)!
 
 ## ℹ Usage
 
